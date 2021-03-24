@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Alert} from 'react-native';
 import {Icon, Button} from 'react-native-elements';
+import UsersContext from '../../../context/userContext';
 
 const CustomButton = ({user, navigation}) => {
+  const {dispatch} = useContext(UsersContext);
+
   function confirmUserDeletion() {
     Alert.alert('Excluir Usuário', 'Deseja excluir o usuário?', [
       {
         text: 'Sim',
         onPress() {
-          console.warn(user.name + ' deleted');
+          dispatch({
+            type: 'deleteUser',
+            payload: user,
+          });
         },
       },
       {

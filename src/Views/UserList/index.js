@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, FlatList} from 'react-native';
 import {ListItem, Avatar} from 'react-native-elements';
 
-import users from '../../data/users';
 import styles from './styles';
 import {CustomButton} from './components';
+import UsersContext from '../../context/userContext';
 
 const UserForm = props => {
+  const {state} = useContext(UsersContext);
+
   function getUserItem({item: user}) {
     return (
       <React.Fragment>
@@ -34,7 +36,7 @@ const UserForm = props => {
     <View>
       <FlatList
         keyExtractor={user => user.id.toString()}
-        data={users}
+        data={state.users}
         renderItem={getUserItem}
       />
     </View>

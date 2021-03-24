@@ -14,7 +14,8 @@ const style = StyleSheet.create({
     fontSize: 28,
   },
   input: {
-    height: 40,
+    height: 50,
+    maxWidth: 250,
     borderColor: 'transparent',
     borderBottomColor: '#a7a7a7',
     color: '#a7a7a7',
